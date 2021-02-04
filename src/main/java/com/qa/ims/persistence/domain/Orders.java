@@ -1,30 +1,36 @@
 package com.qa.ims.persistence.domain;
 
 public class Orders {
-	public long orderId;
-	public long customerId;
+	public Long orderId;
+	public Long customerId;
 	public Double totalCost;
 	
 	
 	
 	
-	public Orders(long orderId, long customerId, Double totalCost) {
+	public Orders(Long orderId, Long customerId, Double totalCost) {
+		super();
+		this.setOrderId(orderId);
+		this.setCustomerId(customerId);
+	}
+	public Orders(Long customerId, Double totalCost) {
 		super();
 		this.setOrderId(orderId);
 		this.setCustomerId(customerId);
 	}
 	
 	
-	public long getOrderId() {
+	
+	public Long getOrderId() {
 		return orderId;
 	}
-	public void setOrderId(long orderId) {
+	public void setOrderId(Long orderId) {
 		this.orderId = orderId;
 	}
-	public long getCustomerId() {
+	public Long getCustomerId() {
 		return customerId;
 	}
-	public void setCustomerId(long customerId) {
+	public void setCustomerId(Long customerId) {
 		this.customerId = customerId;
 	}
 	

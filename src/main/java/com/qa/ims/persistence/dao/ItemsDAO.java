@@ -74,7 +74,7 @@ public class ItemsDAO implements Dao<Items> {
 			statement.setString(1, item.getItemName());
 			statement.setDouble(2, item.getItemPrice());
 			statement.executeUpdate();
-			LOGGER.info(item.getItemName());
+			
 			return readLatest();
 		} catch (Exception e) {
 			LOGGER.debug(e);
