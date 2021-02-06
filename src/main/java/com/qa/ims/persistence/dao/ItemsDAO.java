@@ -140,6 +140,21 @@ public class ItemsDAO implements Dao<Items> {
 		}
 		return 0;
 	}
+	public List<Items> readAllItemsForAnOrder(Long orderId) {
+		try (Connection connection = DBUtils.getInstance().getConnection();
+				Statement statement = connection.createStatement();
+				ResultSet resultSet = statement.executeQuery("SELECT i.* FROM items JOIN order_items o on i.item_id = o.item_id WHERE order_id = 1;");) {
+			List<Items> items = new ArrayList<>();
+			while (resultSet.next()) {
+				items.add(modelFromResultSet(resultSet));
+			}
+			return items;
+		} catch (SQLException e) {
+			LOGGER.debug(e);
+			LOGGER.error(e.getMessage());
+		}
+		return new ArrayList<>();
+	}
 
 
 }
