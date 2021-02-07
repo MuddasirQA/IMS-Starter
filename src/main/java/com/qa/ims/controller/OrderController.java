@@ -52,7 +52,7 @@ public class OrderController implements CrudController<Orders> {
 		LOGGER.info("please enter a item id");
 		Long itemId = utils.getLong();
 
-		orderDAO.createItemOrder(customerId, itemId);
+		orderDAO.createItemOrder(order.getOrderId(), itemId);
 	
 
 		return order;
@@ -61,7 +61,19 @@ public class OrderController implements CrudController<Orders> {
 
 	@Override
 	public int delete() {
-		// TODO Auto-generated method stub
+		LOGGER.info("please select if you wish to delete an entire order, or an item from an order");
+		LOGGER.info("1, Delete entire order");
+		LOGGER.info("2, Delete item from order");
+		Long a = utils.getLong();
+		if (a == 1) {
+			LOGGER.info("please enter the order id you wish to delete");
+			Long orderId = utils.getLong();
+			orderDAO.delete(orderId);
+		} else {
+			LOGGER.info("please select an items_id to delete");
+			Long itemId = utils.getLong();
+			orderDAO.deleteItemInOrder(itemId);
+		}
 		return 0;
 	}
 

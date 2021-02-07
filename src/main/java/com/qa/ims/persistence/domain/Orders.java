@@ -1,11 +1,12 @@
 package com.qa.ims.persistence.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Orders{
 	public Long orderId;
 	public Long customerId;
-	List<Items> items;
+	List<Items> items = new ArrayList<>();
 
 	
 	

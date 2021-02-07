@@ -159,6 +159,23 @@ public class OrdersDAO implements Dao<Orders> {
 		return 0;
 	}
 	// OrderItem DAO methods
+	
+	
+	
+	
+	public int deleteItemInOrder(Long Id) {
+		try (Connection connection = DBUtils.getInstance().getConnection();
+				PreparedStatement statement = connection.prepareStatement("DELETE FROM order_items WHERE order_items_id = ?");){
+			statement.setLong(1, Id);
+			return statement.executeUpdate();
+		}
+		catch (Exception e){
+			LOGGER.debug(e);
+			LOGGER.error(e.getMessage());
+			
+		}
+		return 0;
+	}
 
 	public Orders createItemOrder(Long orderId, Long items) {
 
@@ -185,7 +202,7 @@ public class OrdersDAO implements Dao<Orders> {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 
 				PreparedStatement statement = connection.prepareStatement(
-						" SELECT i.* FROM items i JOIN order_items o on i.item_id = o.item_id WHERE order_id = ?");) {
+						" SELECT item.* FROM items item JOIN order_items oi on item.item_id = oi.item_id WHERE order_id = ?");) {
 			statement.setLong(1, orderId);
 			List<Items> items = new ArrayList<>();
 			try (ResultSet resultSet = statement.executeQuery();) {
