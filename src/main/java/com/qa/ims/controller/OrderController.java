@@ -48,6 +48,9 @@ public class OrderController implements CrudController<Orders> {
 
 	@Override
 	public Orders create() {
+		
+		
+		
 		Boolean addItem = true;
 		
 
@@ -92,24 +95,20 @@ public class OrderController implements CrudController<Orders> {
 			Long orderId = utils.getLong();
 			orderDAO.delete(orderId);
 		} else {
-			LOGGER.info("please select an items_id to delete");
+			LOGGER.info("please select the order id for the item you wish to delete");
+			Long orderId = utils.getLong();
+			LOGGER.info("now enter the itemId in this order to delete");
 			Long itemId = utils.getLong();
-			orderDAO.deleteItemInOrder(itemId);
+			orderDAO.deleteItemInOrder(orderId, itemId);
+			LOGGER.info("this item has been  successfully removed from  order " + orderId);
 		}
 		return 0;
 	}
 
 	@Override
 	public Orders update() {
-//		LOGGER.info("Please select if you wish to update a customer id for an order or an item id ");
-//		Long itemId = utils.getLong();
-//		LOGGER.info("Please enter the a new name for this item");
-//		String itemName = utils.getString();
-//		LOGGER.info("Please enter the new price for this item");
-//		Double itemPrice = utils.getDouble();
-//		
-//		LOGGER.info("This Item has been updated");
-//		return item;
+	
+		
 		return null;
 	}
 

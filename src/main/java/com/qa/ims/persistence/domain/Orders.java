@@ -7,18 +7,27 @@ public class Orders{
 	public Long orderId;
 	public Long customerId;
 	List<Items> items = new ArrayList<>();
+	public Long orderItemId;
+	public Long itemId;
 
 	
 	
 
 	
 
-//
-//	public List<Items> getItems() {
-//		return items;
-//	}
 
-    public Double getTotalCost() {
+
+    public Long getOrderItemId() {
+		return orderItemId;
+	}
+
+
+	public void setOrderItemId(Long orderItemId) {
+		this.orderItemId = orderItemId;
+	}
+
+
+	public Double getTotalCost() {
     	Double totalCost =  0d;
     	for(Items i : items) {
     		  totalCost += i.getItemPrice();
@@ -95,7 +104,9 @@ public class Orders{
 
 	@Override
 	public String toString() {
-		return "Orders orderId=" + orderId + ", customerId= " + customerId + " totalPrice" + getTotalCost();
+		return "Orders orderId=" + orderId + ", customerId= " + customerId + " totalPrice " + getTotalCost() + 
+				"\n ----------------------------------------------------------";
+		
 	}
 
 
@@ -129,6 +140,12 @@ public class Orders{
 		} else if (!orderId.equals(other.orderId))
 			return false;
 		return true;
+	}
+
+
+	public long getItemId() {
+		return itemId;
+		
 	}
 
 
