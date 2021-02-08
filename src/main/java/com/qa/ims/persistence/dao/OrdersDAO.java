@@ -187,7 +187,7 @@ public class OrdersDAO implements Dao<Orders> {
 			statement.setLong(2, items);
 
 			statement.executeUpdate();
-			return readLatest();
+//			return readLatest();
 
 		} catch (Exception e) {
 			LOGGER.debug(e);

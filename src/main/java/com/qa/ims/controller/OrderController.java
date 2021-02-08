@@ -16,14 +16,18 @@ public class OrderController implements CrudController<Orders> {
 
 	public static final Logger LOGGER = LogManager.getLogger();
 	private OrdersDAO orderDAO;
-	private Utils utils;
-	private ItemsDAO itemDAO;
+	private Utils utils = new Utils();
+	private ItemsDAO itemDAO = new ItemsDAO();
+    private ItemsController itemcontroller = new ItemsController(itemDAO, utils);
+    
+
 
 	public OrderController(OrdersDAO orderDAO, Utils utils) {
 		super();
 		this.orderDAO = orderDAO;
 		this.utils = utils;
 	}
+
 
 	@Override
 
@@ -44,15 +48,33 @@ public class OrderController implements CrudController<Orders> {
 
 	@Override
 	public Orders create() {
-		String addItem = "yes";
+		Boolean addItem = true;
+		
 
 		LOGGER.info("please enter a customer id");
 		Long customerId = utils.getLong();
 		Orders order = orderDAO.create(new Orders(customerId));
-		LOGGER.info("please enter a item id");
-		Long itemId = utils.getLong();
+		LOGGER.info("here are all the items available");
+		LOGGER.info("--------------------------------");
+		itemcontroller.readAll();
+		LOGGER.info("--------------------------------");
+		while (addItem) {
 
-		orderDAO.createItemOrder(order.getOrderId(), itemId);
+			LOGGER.info("please enter a item id");
+			Long itemId = utils.getLong();
+
+			orderDAO.createItemOrder(order.getOrderId(), itemId);
+			LOGGER.info("do you wish to add another item to this order? type yes");
+			String answer = utils.getString();
+		
+			if (!answer.equals("yes"))  {
+			
+				
+				addItem = false;
+			}
+			
+
+		}
 	
 
 		return order;
@@ -79,7 +101,15 @@ public class OrderController implements CrudController<Orders> {
 
 	@Override
 	public Orders update() {
-		// TODO Auto-generated method stub
+//		LOGGER.info("Please select if you wish to update a customer id for an order or an item id ");
+//		Long itemId = utils.getLong();
+//		LOGGER.info("Please enter the a new name for this item");
+//		String itemName = utils.getString();
+//		LOGGER.info("Please enter the new price for this item");
+//		Double itemPrice = utils.getDouble();
+//		
+//		LOGGER.info("This Item has been updated");
+//		return item;
 		return null;
 	}
 
