@@ -3,87 +3,51 @@ package com.qa.ims.persistence.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Orders{
+public class Orders {
 	public Long orderId;
 	public Long customerId;
 	List<Items> items = new ArrayList<>();
-	public Long orderItemId;
 	public Long itemId;
-
 	
-	
-
-	
-
-
-
-    public Long getOrderItemId() {
-		return orderItemId;
-	}
-
-
-	public void setOrderItemId(Long orderItemId) {
-		this.orderItemId = orderItemId;
-	}
-
-
-	public Double getTotalCost() {
-    	Double totalCost =  0d;
-    	for(Items i : items) {
-    		  totalCost += i.getItemPrice();
-    	}
-    	return totalCost;
-    	
-    }
-    
-    
-	public List<Items> getItems() {
-		return items;
-	}
-
-
-	public void setItems(List<Items> items) {
-		this.items = items;
-	}
-
-
-	// for creating a new order
 	public Orders(Long customerId) {
 		super();
 		this.setCustomerId(customerId);
 	}
 
-	
-	public Orders(Long orderId, Long customerId, Long itemId2) {
-		super();
-		this.setOrderId(orderId);
-		this.setCustomerId(customerId);
 
-		
-	}
 
-	
-	
 	public Orders(Long orderId, Long customerId) {
 		super();
 		this.setOrderId(orderId);
 		this.setCustomerId(customerId);
-		
+
 	}
 
 	
+	public Double getTotalCost() {
+		Double totalCost = 0d;
+		for (Items i : items) {
+			totalCost += i.getItemPrice();
+		}
+		return totalCost;
+
+	}
+
+	public List<Items> getItems() {
+		return items;
+	}
+
+	public void setItems(List<Items> items) {
+		this.items = items;
+	}
+
 	
 
-
-
-	
 	public Long getItemId(Long itemId) {
 		return itemId;
 	}
-//	public void setItemId(Long itemId) {
-//		this.itemId = itemId;
-//	}
-	
+
+
 	public Long getOrderId() {
 		return orderId;
 	}
@@ -100,15 +64,12 @@ public class Orders{
 		this.customerId = customerId;
 	}
 
-
-
 	@Override
 	public String toString() {
-		return "Orders orderId=" + orderId + ", customerId= " + customerId + " totalPrice " + getTotalCost() + 
-				"\n ----------------------------------------------------------";
-		
-	}
+		return "Orders orderId=" + orderId + ", customerId= " + customerId + " totalPrice " + getTotalCost()
+				+ "\n ----------------------------------------------------------";
 
+	}
 
 	@Override
 	public int hashCode() {
@@ -118,7 +79,6 @@ public class Orders{
 		result = prime * result + ((orderId == null) ? 0 : orderId.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -142,14 +102,9 @@ public class Orders{
 		return true;
 	}
 
-
 	public long getItemId() {
 		return itemId;
-		
+
 	}
-
-
-
-
 
 }
