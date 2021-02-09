@@ -5,7 +5,6 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-
 import com.qa.ims.persistence.dao.ItemsDAO;
 import com.qa.ims.utils.Utils;
 import com.qa.ims.persistence.domain.Items;
@@ -27,9 +26,6 @@ public class ItemsController implements CrudController<Items> {
 		this.utils = utils;
 	}
 
-	/**
-	 * Reads all customers to the logger
-	 */
 	@Override
 	public List<Items> readAll() {
 		List<Items> items = itemsDAO.readAll();
@@ -39,9 +35,6 @@ public class ItemsController implements CrudController<Items> {
 		return items;
 	}
 
-	/**
-	 * Creates a customer by taking in user input
-	 */
 	@Override
 	public Items create() {
 		LOGGER.info("Enter the name of an item you want to create");
@@ -50,14 +43,11 @@ public class ItemsController implements CrudController<Items> {
 		Double itemPrice = utils.getDouble();
 		Items item = itemsDAO.create(new Items(itemName, itemPrice));
 		LOGGER.info(itemName);
-				
+
 		LOGGER.info("Your item was created.");
 		return item;
 	}
 
-	/**
-	 * Updates an existing customer by taking in user input
-	 */
 	@Override
 	public Items update() {
 		LOGGER.info("Please enter an item_id for the item you would like to update");
@@ -71,11 +61,6 @@ public class ItemsController implements CrudController<Items> {
 		return item;
 	}
 
-	/**
-	 * Deletes an existing customer by the id of the customer
-	 * 
-	 * @return
-	 */
 	@Override
 	public int delete() {
 		LOGGER.info("Please enter the id of the item you would like to delete");
