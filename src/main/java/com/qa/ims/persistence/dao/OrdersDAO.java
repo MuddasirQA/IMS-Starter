@@ -26,18 +26,7 @@ public class OrdersDAO implements Dao<Orders> {
 		return new Items(itemId, itemName, itemPrice);
 	}
 
-//	@Override
-//	public Orders modelFromResultSet(ResultSet resultSet) throws SQLException {
-//		Long orderId = resultSet.getLong("order_id");
-//
-//		Long customerId = resultSet.getLong("customer_id");
-//
-//		Long itemId = resultSet.getLong("item_id");
-//
-//		Double totalCost = resultSet.getDouble("total_cost");
-//
-//		return new Orders(orderId, customerId, itemId, totalCost);
-//	}
+
 
 	public Orders modelFromResultSet(ResultSet resultSet) throws SQLException {
 		Long orderId = resultSet.getLong("order_id");
@@ -46,15 +35,7 @@ public class OrdersDAO implements Dao<Orders> {
 
 		return new Orders(orderId, customerId);
 	}
-
-//	public Orders bmodelFromResultSet(ResultSet resultSet) throws SQLException {
-//		Long orderItemId = resultSet.getLong("order_items_id");
-//		Long orderId = resultSet.getLong("order_id");
-//
-//		Long itemId = resultSet.getLong("item_id");
-//
-//		return new Orders(orderItemId, orderId, itemId);
-//	}
+	
 
 	@Override
 	public List<Orders> readAll() {

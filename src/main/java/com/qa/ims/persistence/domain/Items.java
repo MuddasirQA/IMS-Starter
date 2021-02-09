@@ -25,9 +25,6 @@ public class Items {
 
 
 
-	
-
-
 	public Long getItemId() {
 		return itemId;
 	}
