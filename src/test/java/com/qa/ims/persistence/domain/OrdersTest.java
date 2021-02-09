@@ -20,11 +20,6 @@ public class OrdersTest {
 		
 	}
 
-	@Test
-	public void testOrderId() {
-		assertEquals(1L, order.getOrderId(),0);
-
-	}
 
 
 	@Test

@@ -1,6 +1,5 @@
 package com.qa.ims.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -18,16 +17,13 @@ public class OrderController implements CrudController<Orders> {
 	private OrdersDAO orderDAO;
 	private Utils utils = new Utils();
 	private ItemsDAO itemDAO = new ItemsDAO();
-    private ItemsController itemcontroller = new ItemsController(itemDAO, utils);
-    
-
+	private ItemsController itemcontroller = new ItemsController(itemDAO, utils);
 
 	public OrderController(OrdersDAO orderDAO, Utils utils) {
 		super();
 		this.orderDAO = orderDAO;
 		this.utils = utils;
 	}
-
 
 	@Override
 
@@ -48,11 +44,8 @@ public class OrderController implements CrudController<Orders> {
 
 	@Override
 	public Orders create() {
-		
-		
-		
+
 		Boolean addItem = true;
-		
 
 		LOGGER.info("please enter a customer id");
 		Long customerId = utils.getLong();
@@ -69,16 +62,13 @@ public class OrderController implements CrudController<Orders> {
 			orderDAO.createItemOrder(order.getOrderId(), itemId);
 			LOGGER.info("do you wish to add another item to this order? type yes");
 			String answer = utils.getString();
-		
-			if (!answer.equals("yes"))  {
-			
-				
+
+			if (!answer.equals("yes")) {
+
 				addItem = false;
 			}
-			
 
 		}
-	
 
 		return order;
 
@@ -107,8 +97,7 @@ public class OrderController implements CrudController<Orders> {
 
 	@Override
 	public Orders update() {
-	
-		
+
 		return null;
 	}
 

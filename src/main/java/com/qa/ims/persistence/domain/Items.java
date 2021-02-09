@@ -20,7 +20,7 @@ public class Items {
 	public Items(String itemName, Double itemPrice) {
 		this.setItemName(itemName);
 		this.setItemPrice(itemPrice);
-		// TODO Auto-generated constructor stub
+		
 	}
 
 

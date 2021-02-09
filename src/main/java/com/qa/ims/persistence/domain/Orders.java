@@ -7,14 +7,11 @@ public class Orders {
 	public Long orderId;
 	public Long customerId;
 	List<Items> items = new ArrayList<>();
-	public Long itemId;
-	
+
 	public Orders(Long customerId) {
 		super();
 		this.setCustomerId(customerId);
 	}
-
-
 
 	public Orders(Long orderId, Long customerId) {
 		super();
@@ -23,7 +20,6 @@ public class Orders {
 
 	}
 
-	
 	public Double getTotalCost() {
 		Double totalCost = 0d;
 		for (Items i : items) {
@@ -40,13 +36,6 @@ public class Orders {
 	public void setItems(List<Items> items) {
 		this.items = items;
 	}
-
-	
-
-	public Long getItemId(Long itemId) {
-		return itemId;
-	}
-
 
 	public Long getOrderId() {
 		return orderId;
@@ -100,11 +89,6 @@ public class Orders {
 		} else if (!orderId.equals(other.orderId))
 			return false;
 		return true;
-	}
-
-	public long getItemId() {
-		return itemId;
-
 	}
 
 }
