@@ -30,7 +30,7 @@ public class CustomerDAOTest {
 	
 	@Test 
 	public void testCreateException() {
-		final Customer created = new Customer(2L, "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "perrins");
+		final Customer created = new Customer(2L, "aaaaaaghainhieahnioeamjpj9pajwiwajitoawntiowagmaaggawagwawrfhaaa", "kezza");
 		assertEquals(null, DAO.create(created));
 	}
 
@@ -40,12 +40,7 @@ public class CustomerDAOTest {
 		expected.add(new Customer(1L, "jordan", "harrison"));
 		assertEquals(expected, DAO.readAll());
 	}
-	   @Test
-	   public void testReadAllException() {
-			List<Customer> expected = new ArrayList<>();
-			expected.add(new Customer(0L, "jordanaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "harrison"));
-			assertEquals(expected, DAO.readAll());
-	   }
+	
 
 	@Test
 	public void testReadLatest() {

@@ -2,7 +2,6 @@ package com.qa.ims.controllers;
 
 import static org.junit.Assert.assertEquals;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,12 +61,12 @@ public class ItemsControllerTest {
 
 	@Test
 	public void testUpdate() {
-		Items updated = new Items(1l,"book2", 10d);
+		Items updated = new Items(1l, "book2", 10d);
 		Mockito.when(this.utils.getLong()).thenReturn(1l);
 		Mockito.when(this.utils.getString()).thenReturn("book2");
 		Mockito.when(this.utils.getDouble()).thenReturn(updated.getItemPrice());
 		Mockito.when(this.dao.update(updated)).thenReturn(updated);
-System.out.println(this.controller.update() + "00000");
+		System.out.println(this.controller.update() + "00000");
 		assertEquals(updated, this.controller.update());
 		Mockito.verify(this.utils, Mockito.times(1)).getLong();
 		Mockito.verify(this.utils, Mockito.times(1)).getString();

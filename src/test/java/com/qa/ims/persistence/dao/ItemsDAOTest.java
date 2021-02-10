@@ -31,7 +31,7 @@ public class ItemsDAOTest {
 	
 	@Test 
 	public void testCreateException() {
-		final Items created = new Items("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", 10d);
+		final Items created = new Items("aaaaaaaaesgeshrdtjuygkluglihlihlijloji;op;pk;ppk;ftaaaaaaaaaaaaaaaaaaaaaa", 10d);
 		assertEquals(null, DAO.create(created));
 	}
 
