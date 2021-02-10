@@ -21,7 +21,7 @@ import com.qa.ims.persistence.domain.Items;
 
 
 @RunWith(MockitoJUnitRunner.class)
-public class ItemsDAOTest {
+public class ItemExceptionTest {
 
 	@InjectMocks
 	private final ItemsDAO DAO = new ItemsDAO();
@@ -31,7 +31,7 @@ public class ItemsDAOTest {
 
 	@Before
 	public void setup() {
-		DBUtils.connect();
+		DBUtils.connect("Fail");
 		DBUtils.getInstance().init("src/test/resources/sql-schema.sql", "src/test/resources/sql-data.sql");
 	}
 

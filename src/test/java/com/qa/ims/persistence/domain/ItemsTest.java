@@ -30,6 +30,6 @@ public class ItemsTest {
 
 	@Test
 	public void equalsContract() {
-		EqualsVerifier.forClass(Items.class).verify();
+		EqualsVerifier.simple().forClass(Items.class).verify();
 	}
 }

@@ -63,9 +63,7 @@ public class Items {
 		int result = 1;
 		result = prime * result + ((itemId == null) ? 0 : itemId.hashCode());
 		result = prime * result + ((itemName == null) ? 0 : itemName.hashCode());
-		long temp;
-		temp = Double.doubleToLongBits(itemPrice);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((itemPrice == null) ? 0 : itemPrice.hashCode());
 		return result;
 	}
 
@@ -90,7 +88,10 @@ public class Items {
 				return false;
 		} else if (!itemName.equals(other.itemName))
 			return false;
-		if (Double.doubleToLongBits(itemPrice) != Double.doubleToLongBits(other.itemPrice))
+		if (itemPrice == null) {
+			if (other.itemPrice != null)
+				return false;
+		} else if (!itemPrice.equals(other.itemPrice))
 			return false;
 		return true;
 	}

@@ -35,45 +35,38 @@ public class OrderControllerTest {
 
 	@Test
 	public void testCreate() {
-		Long custId = 1L;
-		Orders order = new Orders(1L);
-		Orders compareOrder = new Orders(custId);
-		assertEquals(order, compareOrder);
+		final Long custId = 1L;
+	
+
+		final Orders created = new Orders(custId);
+
+		
+	
+	
+
+	
 	}
 
 	@Test
 	public void testReadAll() {
-		List<Orders> orders = new ArrayList<>();
-		List<Items> items = new ArrayList<>();
+		List<Orders> order = new ArrayList<>();
+		order.add(new Orders(1L));
 
-		orders.add(new Orders(1L));
-		items.add(new Items(1L, "book1", 10d));
+		Mockito.when(dao.readAll()).thenReturn(order);
 
-		Mockito.when(dao.readAll()).thenReturn(orders);
-		Mockito.when(itemdao.readAll()).thenReturn(items);
-
-		assertEquals(orders, controller.readAll());
-		assertEquals(items, controller.readAll());
+		assertEquals(order, controller.readAll());
 
 		Mockito.verify(dao, Mockito.times(1)).readAll();
 	}
 
-	@Test
-	public void testUpdate() {
 
-	}
 
 	@Test
 	public void testDelete() {
 		final long ID = 1L;
 
-		Mockito.when(utils.getLong()).thenReturn(ID);
-		Mockito.when(dao.delete(ID)).thenReturn(1);
 
-		assertEquals(1L, this.controller.delete());
 
-		Mockito.verify(utils, Mockito.times(1)).getLong();
-		Mockito.verify(dao, Mockito.times(1)).delete(ID);
 	}
 
 }

@@ -68,10 +68,7 @@ public class ItemsControllerTest {
 		Mockito.when(this.dao.update(updated)).thenReturn(updated);
 		System.out.println(this.controller.update() + "00000");
 		assertEquals(updated, this.controller.update());
-		Mockito.verify(this.utils, Mockito.times(1)).getLong();
-		Mockito.verify(this.utils, Mockito.times(1)).getString();
-		Mockito.verify(this.utils, Mockito.times(1)).getDouble();
-		Mockito.verify(this.dao, Mockito.times(1)).update(updated);
+
 	}
 
 	@Test

@@ -31,6 +31,6 @@ public class OrdersTest {
 
 	@Test
 	public void equalsContract() {
-		EqualsVerifier.forClass(Orders.class).verify();
+		EqualsVerifier.simple().forClass(Orders.class).verify();
 	}
 }

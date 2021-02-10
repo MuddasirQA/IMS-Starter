@@ -22,7 +22,7 @@ public class CustomerTest {
 
 	@Test
 	public void testConstructor() {
-		assertEquals(Long.valueOf(1), customer.getId());
+		assertEquals(Long.valueOf(1), customers.getId());
 
 	}
 
@@ -34,7 +34,7 @@ public class CustomerTest {
 
 	@Test
 	public void equalsContract() {
-		EqualsVerifier.forClass(Customer.class).verify();
+		EqualsVerifier.simple().forClass(Customer.class).verify();
 	}
 
 }
