@@ -1,15 +1,12 @@
-Coverage: 34%
-# Project Title
+Coverage: 63.9%
+# Muddasir's IMS project
 
-One Paragraph of project description goes here
+This project is coded in Java and can either connect through JDBC to a local mySQL instance or by using GCP. The project consists of four main functions, Create, Read, Update, and Delete (CRUD). The inventory management system contains a list of customers, items and orders. A customer creates an order and adds/removes items in an order by using the CRUD functionalities. The end-user can also generate new customers and items in databases
 
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
-
-What things you need to install the software and how to install them
 
 ```
 Give examples
