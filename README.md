@@ -1,6 +1,10 @@
 Coverage: 68.4%
 # Muddasir's IMS project
 
+
+
+## Introduction
+
 This project is coded in Java and can either connect through JDBC to a local mySQL instance or by using GCP. The project consists of four main functions, Create, Read, Update, and Delete (CRUD). The inventory management system contains a list of customers, items and orders. A customer creates an order and adds/removes items in an order by using the CRUD functionalities. The end-user can also generate new customers and items in databases
 
 ## Using the application
@@ -27,48 +31,63 @@ DELETE: This function will ask for an ID, (customer, order, or item), that the e
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
+The source code for this project can be downloaded or forked (github.com/MuddasirQA/IMS-Starter) from this repository.
 
-Say what the step will be
+This project connects to a database, please ensure that a connection is made with the correct credentials, which can be found within the db.properties file.
 
-```
-Give the example
-```
+You will need to install jdk 14.0.2 and set up a system environment variable with the correct directory appended to PATH to run java commands in your terminal. More information on how to do this can be found on QA community.
 
-And repeat
+Whilst in the target folder of the project, open a terminal (Git bash here) and run the command 
 
-```
-until finished
-```
+java -jar IMS-0.0.1-jar-with-dependencies
 
-End with an example of getting some data out of the system or using it for a little demo
+Please see above for how to use the application.
 
-## Running the tests
 
-Explain how to run the automated tests for this system. Break down into which tests and what they do
+
+Tests cases are created for the DAO, domain, and Controller aspects of the application.
 
 ### Unit Tests 
 
 JUNIT tests are used in this project to test each method that is used within the application. Each test case will verify if the intented outcome is equal to the actual outcome using assertEquals(param1,param2). Mockito is also used in these unit tests to determine how many times a method is executed.
 
 ```
-Give an example
+@RunWith(MockitoJUnitRunner.class)
+public class ItemsControllerTest {
+	@Mock
+	private Utils utils;
+
+	@Mock
+	private ItemsDAO dao;
+
+	@InjectMocks
+	private ItemsController controller;
+
+	@Test
+	public void testCreate() {
+		final String itemName = "book1";
+		final Double itemPrice = 10.00d;
+
+		final Items created = new Items(itemName, itemPrice);
+
+		Mockito.when(utils.getString()).thenReturn(itemName);
+		Mockito.when(utils.getDouble()).thenReturn(itemPrice);
+		Mockito.when(dao.create(created)).thenReturn(created);
+
+		assertEquals(created, controller.create());
+
+		Mockito.verify(utils, Mockito.times(1)).getString();
+		Mockito.verify(utils, Mockito.times(1)).getDouble();
+
+		Mockito.verify(dao, Mockito.times(1)).create(created);
+	}
+  }
 ```
 
-### Integration Tests 
-Explain what these tests test, why and how to run them
 
-```
-Give an example
-```
 
-### And coding style tests
 
-Explain what these tests test and why
 
-```
-Give an example
-```
 
 ## Deployment
 
@@ -94,4 +113,6 @@ This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Thanks to the original author who created the base-line version of this application.
+* Thanks to the original author(s) who created the base-line version of this application
+Thanks to JHarry444 for the READ.ME template.
+
