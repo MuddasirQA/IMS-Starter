@@ -33,7 +33,7 @@ DELETE: This function will ask for an ID, (customer, order, or item), that the e
 
 The source code for this project can be downloaded or forked (github.com/MuddasirQA/IMS-Starter) from this repository.
 
-This project connects to a database, please ensure that a connection is made with the correct credentials, which can be found within the db.properties file.
+This project connects to a database (JDBC), please ensure that the connection is made with the correct credentials, which can be found within the db.properties file, alternatively you can request this information from Muddasir.
 
 You will need to install jdk 14.0.2 and set up a system environment variable with the correct directory appended to PATH to run java commands in your terminal. More information on how to do this can be found on QA community.
 
@@ -41,7 +41,7 @@ Whilst in the target folder of the project, open a terminal (Git bash here) and 
 
 java -jar IMS-0.0.1-jar-with-dependencies
 
-Please see above for how to use the application.
+Please see "Using the application" at the top of this readme file for an extensive breakdown on how to use this application.
 
 
 
@@ -85,13 +85,6 @@ public class ItemsControllerTest {
 ```
 
 
-
-
-
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
