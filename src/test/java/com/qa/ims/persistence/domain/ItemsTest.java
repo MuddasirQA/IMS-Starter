@@ -8,8 +8,10 @@ import nl.jqno.equalsverifier.EqualsVerifier;
 
 public class ItemsTest {
 	
-	private Items item = new Items("book1",10.00d);
+	
 	private Items items = new Items(1L, "Red", 60d);
+	
+	private Items item = new Items("book1",10.00d);
 
 	@Test
 	public void testItemName() {
