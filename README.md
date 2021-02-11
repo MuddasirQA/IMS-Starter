@@ -49,8 +49,22 @@ Tests cases are created for the DAO, domain, and Controller aspects of the appli
 
 ### Unit Tests 
 
-JUNIT tests are used in this project to test each method that is used within the application. Each test case will verify if the intented outcome is equal to the actual outcome using assertEquals(param1,param2). Mockito is also used in these unit tests to determine how many times a method is executed.
+JUNIT tests are used in this project to test each method that is used within the application. Each test case will verify if the intented outcome is equal to the actual outcome using assertEquals(param1,param2). 
 
+``` 
+private Items item = new Items("book1",10.00d);
+
+	@Test
+	public void testItemName() {
+		assertEquals("book1", item.getItemName());
+
+	}
+```
+
+
+
+### Integration tests
+Mockito is also used in this application, it is a testing framework that allows for "mocking" and has useful methods such as verify that tests the amount of times a method was invoked. Mockito is best used when creating "Test doubles". 
 ```
 @RunWith(MockitoJUnitRunner.class)
 public class ItemsControllerTest {
