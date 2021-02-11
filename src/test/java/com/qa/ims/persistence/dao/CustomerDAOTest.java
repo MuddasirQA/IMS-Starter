@@ -28,11 +28,7 @@ public class CustomerDAOTest {
 		assertEquals(created, DAO.create(created));
 	}
 	
-	@Test 
-	public void testCreateException() {
-		final Customer created = new Customer(2L, "aaaaaaghainhieahnioeamjpj9pajwiwajitoawntiowagmaaggawagwawrfhaaa", "kezza");
-		assertEquals(null, DAO.create(created));
-	}
+
 
 	@Test
 	public void testReadAll() {
