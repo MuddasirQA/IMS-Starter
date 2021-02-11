@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Orders {
-	public Long orderId;
-	public Long customerId;
+	private Long orderId;
+	private Long customerId;
 	List<Items> items = new ArrayList<>();
 
 	public Orders(Long customerId) {
