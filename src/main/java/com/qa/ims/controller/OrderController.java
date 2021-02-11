@@ -54,7 +54,7 @@ public class OrderController implements CrudController<Orders> {
 		LOGGER.info("--------------------------------");
 		itemcontroller.readAll();
 		LOGGER.info("--------------------------------");
-		while (addItem==true) {
+		while (addItem) {
 
 			LOGGER.info("please enter a item id");
 			Long itemId = utils.getLong();
