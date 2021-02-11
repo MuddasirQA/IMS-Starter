@@ -65,10 +65,10 @@ public class Customer {
 		if (getClass() != obj.getClass())
 			return false;
 		Customer other = (Customer) obj;
-		if (getFirstName() == null) {
-			if (other.getFirstName() != null)
+		if (firstName == null) {
+			if (other.firstName != null)
 				return false;
-		} else if (!getFirstName().equals(other.getFirstName()))
+		} else if (!firstName.equals(other.firstName))
 			return false;
 		if (id == null) {
 			if (other.id != null)
