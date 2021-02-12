@@ -123,3 +123,10 @@ This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md
 * Thanks to the original author(s) who created the base-line version of this application
 Thanks to JHarry444 for the READ.ME template.
 
+## Note
+
+link to Jiraboard: https://team-1610454609390.atlassian.net/jira/software/c/projects/MI/boards/4/roadmap?shared=&atlOrigin=eyJpIjoiM2E2MjUxYTc4MWI2NGIxZDk4ZTE1ZGI3ZTVlMzBiODAiLCJwIjoiaiJ9
+
+Please note: the stories in sprint 2 were mysteriously removed from the backlog, however, they can be viewed in the roadmap. 
+
+
